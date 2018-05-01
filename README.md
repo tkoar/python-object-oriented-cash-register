@@ -91,11 +91,11 @@ print(discount_cash_register.apply_discout()) # 848.00
 print(cash_register.apply_discount())
 ```
 
-Great, we have a way to add items, view our total, and apply discounts. We now want to be able to view a list of all items in our cart. Let's define an instance method called `items` which returns a list of names which represent each item we have in our cart -- if there are three socks the list should contain three `"socks"`. 
+Great, we have a way to add items, view our total, and apply discounts. We now want to be able to view a list of all items in our cart. Let's define an instance method called `item_names` which returns a list of names which represent each item we have in our cart -- if there are three socks the list should contain three `"socks"`. 
 
 
 ```python
-cash_register.items() 
+cash_register.item_names() 
 # ["rainbow sandals", "argyle socks", "jeans", "jeans", "jeans"]
 ```
 
