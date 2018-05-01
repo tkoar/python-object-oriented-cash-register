@@ -57,21 +57,26 @@ cash_register.add_item("agyle socks", 10.50) # 56.49
 cash_register.add_item("jeans", 50.00, 3) # 206.49
 ```
 
-We have been spending a lot the past few weeks and are getting a lot of buyers remorse. Let's see if we can play around with the math to justify our purchases to ourselves. Let's define two instance methods: `average_item_price` and `median_item_price`, which should return the average price per item and the median price of the items in your cart, respectively. 
+We have been spending a lot the past few weeks and are getting a lot of buyers remorse. Let's see if we can play around with the math to justify our purchases to ourselves. Let's define two instance methods: `mean_item_price` and `median_item_price`, which should return the average price per item and the median price of the items in your cart, respectively. 
+
+> **remember:** the mean is the average price per item and to find the median we must do three things:
+* First put all numbers in our list in ascending order (smallest to greatest)
+* Then check to see if there is an odd number of elements in our list. If so, the middle number is the median
+* Finally, if there is an even number of elements in the list, the median will be the average or mean of the two center elements (e.g. given the list `[1,2,3,4]` the elements `2` and `3` are the two center elements and the median would be (2 + 3)/2 or `2.5`).
 
 
 ```python
-cash_register.average_item_price()
+cash_register.mean_item_price() # 41.29
 ```
 
 
 ```python
-cash_register.median_item_price()
+cash_register.median_item_price() # 50.00
 ```
 
-## More TALKING HERE
+Alright, so, clearly we are going to opt for using the average item price to justify our purchases this week. Maybe later in this lab we'll have to define a method that can remove an item from out cart -- that's a big MAYBE.
 
-Now, define an instance method called `apply_discount` that applies a discount if one is provided and returns the discounted total. For example, if we initialize a new cash register with a discount of 20% then our total should be discounted in the amount of 20%. So, if our total were `$100`, after the discount we would only owe `$80`.
+Now, let's define an instance method called `apply_discount` that applies a discount if one is provided and returns the discounted total. For example, if we initialize a new cash register with a discount of 20% then our total should be discounted in the amount of 20%. So, if our total were `$100`, after the discount we would only owe `$80`.
 
 If our cash register does not have an employee discount, then it should return a string saying: `"Sorry, there is no discount to apply to your cart :("`
 
@@ -97,4 +102,4 @@ cash_register.items()
 Finally, we are missing one piece of functionality. What if we added something to our cart that we would like to remove? Let's define a method that, given a name, removes the first item from our cart with that name, updates the cash registers total, and finally returns the new total.
 
 ## Summary
-In this lab, we practiced using instance methods to mimic the functionality of a shopping cart. 
+In this lab, we practiced using instance methods to mimic the functionality of a shopping cart as well as defined methods that give us the mean and median prices of all the items in our cart. 
