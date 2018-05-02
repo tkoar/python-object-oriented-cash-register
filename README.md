@@ -2,7 +2,7 @@
 # Python Object Oriented Cash Register Lab
 
 ## Introduction
-In this lab we will be mimicing the functionality of a cash register with our knowledge of object oriented Python. Our cash register will be able to add items of different quantities and prices to our cart, calculate discounts, keep track of what items have been added, and void transactions.
+In this lab we will be mimicking the functionality of a cash register with our knowledge of object oriented Python. Our cash register will be able to add items of different quantities and prices to our cart, calculate discounts, keep track of what items have been added, and void transactions.
 
 ## Objectives
 
