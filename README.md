@@ -12,9 +12,11 @@ In this lab we will be mimicing the functionality of a cash register with our kn
 
 ## Instructions
 
-We will need to build a CashRegister class that creates a cash register with a total (`_total`) which starts at `0`, an empty list of items (`_items`), and an optional employee discount (`_employee_discount`).
+We will need to build a CashRegister class that creates a cash register with a total (`_total`) which starts at `0`, an empty list of items (`_items`), and an optional employee discount (`_employee_discount`). 
 
-Next define instance methods that use decorators for these attributes to both read and write (get and set) these attributes, which should be named `total`, `items`, and `employee_discount`.
+**hint:** if there is no employee discount present, this might be a good opportunity to use of datatype `None` as a default value.
+
+Since we want to stick to convention, we next need to define instance methods that use decorators for these attributes to read and write (get and set) these attributes. We shouldn't need to set these attributes, but it's good practice! These instance methods should be named `total`, `items`, and `employee_discount`.
 
 > **note:** remember to load the autoreload extension from IPython
 ```python
@@ -74,7 +76,7 @@ cash_register.mean_item_price() # 41.29
 cash_register.median_item_price() # 50.00
 ```
 
-Alright, so, clearly we are going to opt for using the average item price to justify our purchases this week. Maybe later in this lab we'll have to define a method that can remove an item from out cart -- that's a big MAYBE.
+Alright, so, clearly we are going to opt for using the mean item price to justify our purchases this week. Maybe later in this lab we'll have to define a method that can remove an item from out cart -- that's a big MAYBE.
 
 Now, let's define an instance method called `apply_discount` that applies a discount if one is provided and returns the discounted total. For example, if we initialize a new cash register with a discount of 20% then our total should be discounted in the amount of 20%. So, if our total were `$100`, after the discount we would only owe `$80`.
 
@@ -85,10 +87,10 @@ If our cash register does not have an employee discount, then it should return a
 discount_cash_register = CashRegister(20)
 print(discount_cash_register.add_item("rainbow sandals", 45.00)) # 45.00
 print(discount_cash_register.add_item("agyle socks", 15.00)) # 60.00
-print(discount_cash_register.apply_discout()) # 48.00
+print(discount_cash_register.apply_discount()) # 48.00
 print(discount_cash_register.add_item("macbook air", 1000.00)) # 1060.00
-print(discount_cash_register.apply_discout()) # 848.00
-print(cash_register.apply_discount())
+print(discount_cash_register.apply_discount()) # 848.00
+print(cash_register.apply_discount()) # Sorry, there is no discount to apply to your cart :(
 ```
 
 Great, we have a way to add items, view our total, and apply discounts. We now want to be able to view a list of all items in our cart. Let's define an instance method called `item_names` which returns a list of names which represent each item we have in our cart -- if there are three socks the list should contain three `"socks"`. 

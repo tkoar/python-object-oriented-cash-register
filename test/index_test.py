@@ -23,17 +23,16 @@ class TestObjectAttributes(unittest.TestCase):
         self.assertItemsEqual(example_cr.items, [])
         self.assertEqual(example_cr.employee_discount, 50)
         example_cr.total = 40
-        example_cr.items = [{"ice cream": 5.00}]
+        example_cr.items = [{"name": "ice cream", "price": 5.00}]
         example_cr.employee_discount = 10
         self.assertEqual(example_cr.total, 40)
-        self.assertItemsEqual(example_cr.items, [{"ice cream": 5.00}])
+        self.assertItemsEqual(example_cr.items, [{"name": "ice cream", "price": 5.00}])
         self.assertEqual(example_cr._employee_discount, 10)
 
     def test_add_item_method(self):
         example_cr = CashRegister()
-        example_cr.add_item("ice cream", 5.00)
-        self.assertItemsEqual(example_cr.add_item("ice cream", 5.00), [{"ice cream": 5.00}])
-        self.assertItemsEqual(example_cr.items, [{"ice cream": 5.00}])
+        self.assertEqual(example_cr.add_item("ice cream", 5.00), 5.00)
+        self.assertItemsEqual(example_cr.items, [{"name": "ice cream", "price": 5.00}])
 
     def test_apply_discount_method(self):
         example_cr = CashRegister(20)
@@ -53,7 +52,7 @@ class TestObjectAttributes(unittest.TestCase):
         example_cr.add_item("ice cream", 5.00)
         example_cr.add_item("cereal", 10.00)
         example_cr.add_item("OJ", 4.00, 3)
-        self.assertEqual(example_cr.median_item_price(), 5.40)
+        self.assertEqual(example_cr.mean_item_price(), 5.40)
 
     def test_median_item_price_odd_count_method(self):
         example_cr = CashRegister()
